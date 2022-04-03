@@ -32,8 +32,7 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor [id=" + id + ", " + (firstName != null ? "firstName=" + firstName + ", " : "")
-				+ (lstName != null ? "lstName=" + lstName : "") + "]";
+		return String.format("Actor id= %s, firstName: %s, lstName: %s", id, firstName, lstName);
 	}
 
 	public Actor() {

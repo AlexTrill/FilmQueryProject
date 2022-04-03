@@ -16,6 +16,10 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private String language;
+	
+	
+	
 
 	private List<Actor> actors;
 
@@ -37,6 +41,9 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+	}
+
+	public Film(String title2, String desc, int rYear, String rating2, String language, List<Actor> actors2) {
 	}
 
 	public int getId() {
@@ -154,29 +161,23 @@ public class Film {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Film [id=").append(id).append(", ");
-		if (title != null)
-			builder.append("title=").append(title).append(", ");
-		if (description != null)
-			builder.append("description=").append(description).append(", ");
-		if (realeaseYear != null)
-			builder.append("realeaseYear=").append(realeaseYear).append(", ");
-		builder.append("languageId=").append(languageId).append(", rentalDuration=").append(rentalDuration)
-				.append(", ");
-		if (rentalrate != null)
-			builder.append("rentalrate=").append(rentalrate).append(", ");
-		builder.append("length=").append(length).append(", replacementCost=").append(replacementCost)
-				.append(", rating=").append(rating).append(", ");
-		if (specialFeatures != null)
-			builder.append("specialFeatures=").append(specialFeatures);
-		builder.append("]");
-		return builder.toString();
+		return String.format(
+				"Film id: %s, title: %s, description:  %s, realeaseYear: %s, languageId: %s, rentalDuration: %s, rentalrate: %s, length: %s, replacementCost: %s, rating: %s, specialFeatures: %s, language: %s, actors: %s]",
+				id, title, description, realeaseYear, languageId, rentalDuration, rentalrate, length, replacementCost,
+				rating, specialFeatures, language, actors);
 	}
 
 	{
 		// TODO Auto-generated method stub
 
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 }
