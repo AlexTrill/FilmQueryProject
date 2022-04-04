@@ -25,12 +25,12 @@ public class FilmQueryApp {
 
 		Actor actor;
 
-//		actor = db.findActorById(1);
-//
-//		System.out.println(actor);
-//		
-//		List<Actor> actors = db.findActorsByFilmId(1);
-//		System.out.println(actors);
+		actor = db.findActorById(1);
+
+		System.out.println(actor);
+
+		List<Actor> actors = db.findActorsByFilmId(1);
+		System.out.println(actors);
 
 		for (Actor a : film.getActors()) {
 			System.out.println(a);
@@ -41,7 +41,10 @@ public class FilmQueryApp {
 		Scanner input = new Scanner(System.in);
 
 		startUserInterface(input);
-		FilmQueryApp app = new FilmQueryApp();
+	}
+
+	private void startUserInterface(Scanner input) {
+		// TODO: start menu loop, input, etc.
 
 		boolean loop = true;
 		int idPick = 0;
@@ -55,7 +58,6 @@ public class FilmQueryApp {
 			System.out.println("3. Exit");
 			int choice = input.nextInt();
 			input.nextLine();
-			
 
 			if (choice >= 0 || choice <= 3) {
 
@@ -63,21 +65,15 @@ public class FilmQueryApp {
 				case 1:
 					System.out.println("what is the film id you would like to look up?");
 
-					try {
-						idPick = input.nextInt();
-						input.nextLine();
-						
-						Film filmByID = db.findFilmById(idPick);
-						if (filmByID == null) {
+					idPick = input.nextInt();
+					input.nextLine();
 
-							System.out.println("No movie found with that ID");
-						}
-						else {
-							System.out.println(filmByID);
-						}
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						System.out.println("Invalid input or too large of a number entered, please try again");
+					Film filmByID = db.findFilmById(idPick);
+					if (filmByID == null) {
+
+						System.out.println("No movie found with that ID");
+					} else {
+						System.out.println(filmByID);
 					}
 
 					break;
@@ -96,7 +92,6 @@ public class FilmQueryApp {
 							}
 						}
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
@@ -115,10 +110,4 @@ public class FilmQueryApp {
 		}
 		input.close();
 	}
-
-	private void startUserInterface(Scanner input) {
-		// TODO: start menu loop, input, etc.
-
-	}
-
 }

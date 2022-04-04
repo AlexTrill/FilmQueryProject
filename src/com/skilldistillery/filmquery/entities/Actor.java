@@ -37,7 +37,6 @@ public class Actor {
 
 	public Actor() {
 		super();
-		this.id = id;
 
 	}
 	// TODO Auto-generated method stub
